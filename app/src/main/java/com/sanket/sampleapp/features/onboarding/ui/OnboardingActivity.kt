@@ -1,11 +1,19 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.features.onboarding.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.sanket.sampleapp.R
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
 class OnboardingActivity : AppCompatActivity() {
+
+    companion object {
+        @JvmStatic
+        fun newIntent(context: Context) = Intent(context, OnboardingActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +26,7 @@ class OnboardingActivity : AppCompatActivity() {
                 pivOnboarding.selection = position
             }
         })
+
     }
-
-
 
 }

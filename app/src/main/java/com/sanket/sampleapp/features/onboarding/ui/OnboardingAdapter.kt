@@ -1,8 +1,10 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.features.onboarding.ui
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sanket.sampleapp.R
+import com.sanket.sampleapp.utils.inflateView
 
 /**
  * Created by Sanket on 28/04/19.
