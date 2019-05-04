@@ -1,5 +1,10 @@
 package com.sanket.sampleapp
 
+import Injection
+import android.app.Activity
+import android.content.Context
+import androidx.core.content.edit
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.intent.Intents
 import com.sanket.sampleapp.application.AppCache
 import com.sanket.sampleapp.application.Constants
@@ -30,8 +35,12 @@ open class BaseInstrumentationTest {
     }
 
     @After
-    fun teardown() {
-        //Clear shared preferences
+    open fun teardown() {
+        val sharedPreferences = ApplicationProvider.getApplicationContext<Context>()
+            .getSharedPreferences(Injection.PREFERENCE_FILE_NAME, Activity.MODE_PRIVATE)
+        sharedPreferences.edit {
+            clear()
+        }
         AppCache.clear()
         try {
             Intents.release()
