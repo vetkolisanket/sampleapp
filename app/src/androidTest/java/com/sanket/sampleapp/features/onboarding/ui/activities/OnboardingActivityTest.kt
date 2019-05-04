@@ -4,12 +4,10 @@ import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.sanket.sampleapp.base.BaseInstrumentationTest
-import com.sanket.sampleapp.features.onboarding.ui.activities.OnboardingActivity
 import com.sanket.sampleapp.robots.OnboardingRobot
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.MockitoAnnotations
 
 /**
  * Created by Sanket on 02/05/19.
@@ -24,7 +22,7 @@ class OnboardingActivityTest : BaseInstrumentationTest() {
     @Before
     override fun setup() {
         super.setup()
-        MockitoAnnotations.initMocks(this)
+//        MockitoAnnotations.initMocks(this)
     }
 
     @Test

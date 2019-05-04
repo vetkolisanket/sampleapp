@@ -3,11 +3,10 @@ package com.sanket.sampleapp.features.onboarding.ui.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import com.sanket.sampleapp.R
+import com.sanket.sampleapp.base.BaseActivity
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context) = Intent(context, LoginActivity::class.java)
@@ -24,15 +23,6 @@ class LoginActivity : AppCompatActivity() {
         initToolbar()
     }
 
-    private fun initToolbar() {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> onBackPressed()
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
 }
