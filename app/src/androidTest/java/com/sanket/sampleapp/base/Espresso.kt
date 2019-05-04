@@ -1,4 +1,4 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.base
 
 import androidx.annotation.IdRes
 import androidx.test.espresso.Espresso.onView

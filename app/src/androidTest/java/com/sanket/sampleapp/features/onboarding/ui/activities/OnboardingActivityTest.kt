@@ -1,9 +1,11 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.features.onboarding.ui.activities
 
 import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
+import com.sanket.sampleapp.base.BaseInstrumentationTest
 import com.sanket.sampleapp.features.onboarding.ui.activities.OnboardingActivity
+import com.sanket.sampleapp.robots.OnboardingRobot
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

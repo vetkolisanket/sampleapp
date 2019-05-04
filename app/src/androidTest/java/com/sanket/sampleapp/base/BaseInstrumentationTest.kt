@@ -1,4 +1,4 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.base
 
 import Injection
 import android.app.Activity
@@ -6,6 +6,7 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.intent.Intents
+import com.sanket.sampleapp.BuildConfig
 import com.sanket.sampleapp.application.AppCache
 import com.sanket.sampleapp.application.Constants
 import com.sanket.sampleapp.utils.Logger

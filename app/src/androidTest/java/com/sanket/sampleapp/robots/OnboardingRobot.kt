@@ -1,7 +1,9 @@
-package com.sanket.sampleapp
+package com.sanket.sampleapp.robots
 
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.rule.ActivityTestRule
+import com.sanket.sampleapp.R
+import com.sanket.sampleapp.base.Espresso
 import com.sanket.sampleapp.features.onboarding.ui.activities.LoginActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.OnboardingActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.SignUpActivity
