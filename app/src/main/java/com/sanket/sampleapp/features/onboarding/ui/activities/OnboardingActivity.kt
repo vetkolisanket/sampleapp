@@ -31,6 +31,9 @@ class OnboardingActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             startActivity(LoginActivity.newIntent(this@OnboardingActivity))
         }
+        btnSignup.setOnClickListener {
+            startActivity(SignUpActivity.newIntent(this@OnboardingActivity))
+        }
     }
 
     private fun initViewPager() {

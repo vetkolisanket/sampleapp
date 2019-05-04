@@ -21,7 +21,6 @@ open class BaseInstrumentationTest {
 
         private val allowedFlavors = listOf(Constants.BuildType.MOCK)
 
-        @JvmStatic
         fun canProvideRealImpl(): Boolean {
             return allowedFlavors.contains(BuildConfig.FLAVOR)
         }

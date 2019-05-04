@@ -4,7 +4,6 @@ import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.sanket.sampleapp.features.onboarding.ui.activities.OnboardingActivity
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,8 +31,7 @@ class OnboardingActivityTest : BaseInstrumentationTest() {
     }
 
     @Test
-    fun should_open_login_activity_on_click_of_login_button() {
-
+    fun should_open_login_activity_on_click_of_login_btn() {
         Intents.init()
 
         robot
@@ -45,8 +43,17 @@ class OnboardingActivityTest : BaseInstrumentationTest() {
         Intents.release()
     }
 
-    @After
-    override fun teardown() {
+    @Test
+    fun should_open_sign_up_activity_on_click_of_sign_up_btn() {
+        Intents.init()
+
+        robot
+            .launch(rule)
+            .isSignUpBtnVisible()
+            .clickSignUpBtn()
+            .isSignUpActivityOpen()
+
+        Intents.release()
     }
 
 }
