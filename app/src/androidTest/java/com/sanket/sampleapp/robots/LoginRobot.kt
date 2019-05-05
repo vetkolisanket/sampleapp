@@ -25,14 +25,17 @@ class LoginRobot {
         return this
     }
 
-    fun isErrorShown() {
-//        Espresso.isToastVisibleWithMessage()
+    fun isErrorShown(errorMessage: String) {
+        Espresso.isToastVisibleWithMessage(errorMessage)
     }
 
-    fun sendMockFailureResponse(rule: ActivityTestRule<LoginActivity>): LoginRobot {
-        /*rule.activity.runOnUiThread(Runnable {
-            rule.activity.showMessage()
-        })*/
+    fun sendMockFailureResponse(
+        rule: ActivityTestRule<LoginActivity>,
+        errorMessage: String
+    ): LoginRobot {
+        rule.activity.runOnUiThread {
+            rule.activity.showMessage(errorMessage)
+        }
         return this
     }
 }

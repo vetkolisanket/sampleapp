@@ -31,12 +31,14 @@ class LoginActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_show_error_on_login_btn_click_with_no_input() {
+        val errorMessage = "Error"
+
         robot
             .launch(rule)
             .isLoginBtnVisible()
             .clickLoginBtn()
-            .sendMockFailureResponse(rule)
-            .isErrorShown()
+            .sendMockFailureResponse(rule, errorMessage)
+            .isErrorShown(errorMessage)
     }
 
     @Test

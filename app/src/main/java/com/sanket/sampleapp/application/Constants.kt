@@ -13,4 +13,8 @@ object Constants {
         const val STAGING = "staging"
     }
 
+    object MessageType {
+        const val TOAST = "toast"
+    }
+
 }

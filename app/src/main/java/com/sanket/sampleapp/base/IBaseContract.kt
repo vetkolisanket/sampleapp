@@ -1,6 +1,7 @@
 package com.sanket.sampleapp.base
 
 import android.content.Context
+import com.sanket.sampleapp.application.Constants
 
 /**
  * Created by Sanket on 05/05/19.
@@ -11,7 +12,7 @@ interface IBaseContract {
 
         fun getContext(): Context
 
-        fun showMessage(message: String, type: String)
+        fun showMessage(message: String, type: String = Constants.MessageType.TOAST)
 
     }
 

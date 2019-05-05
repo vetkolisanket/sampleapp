@@ -25,4 +25,8 @@ object Espresso {
     fun isActivityOpen(name: String) {
         intended(hasComponent(name))
     }
+
+    fun isToastVisibleWithMessage(errorMessage: String) {
+//        onView(withText(errorMessage)).check(matches(isDisplayed()))
+    }
 }
