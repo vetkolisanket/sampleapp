@@ -1,5 +1,6 @@
 package com.sanket.sampleapp.features.onboarding.ui.activities
 
+import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.sanket.sampleapp.base.BaseInstrumentationTest
@@ -43,7 +44,16 @@ class LoginActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_show_error_on_entering_invalid_password() {
+        val errorMessage = "Error"
+        val email = "abc@gmail.com"
 
+        robot
+            .launch(rule)
+            .isEmailFieldVisible()
+            .enterEmail(email)
+            .clickLoginBtn()
+            .sendMockFailureResponse(rule, errorMessage)
+            .isErrorShown(errorMessage)
     }
 
     @Test
@@ -58,7 +68,22 @@ class LoginActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_go_to_home_activity_on_providing_valid_input_and_getting_successful_response_from_backend() {
+        val email = "abc@gmail.com"
+        val password = "abc"
 
+        Intents.init()
+
+        robot
+            .launch(rule)
+            .isEmailFieldVisible()
+            .enterEmail(email)
+            .isPasswordFieldVisible()
+            .enterPassword(password)
+            .clickLoginBtn()
+            .sendMockSuccessResponse(rule)
+            .isHomeActivityOpen()
+
+        Intents.release()
     }
 
     @Test

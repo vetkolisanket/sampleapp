@@ -23,6 +23,7 @@ class LoginActivity : BaseActivity() {
         initToolbar()
     }
 
-
-
+    fun onLoginSuccess() {
+        startActivity(HomeActivity.newIntent(this))
+    }
 }

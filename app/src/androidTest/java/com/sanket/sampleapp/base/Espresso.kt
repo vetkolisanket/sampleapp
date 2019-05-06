@@ -2,7 +2,9 @@ package com.sanket.sampleapp.base
 
 import androidx.annotation.IdRes
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.clearText
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
@@ -27,6 +29,10 @@ object Espresso {
     }
 
     fun isToastVisibleWithMessage(errorMessage: String) {
-//        onView(withText(errorMessage)).check(matches(isDisplayed()))
+//        onView(allOf(withText(errorMessage))).check(matches(isDisplayed()))
+    }
+
+    fun enterText(@IdRes id: Int, text: String) {
+        onView(withId(id)).perform(clearText(), typeText(text))
     }
 }

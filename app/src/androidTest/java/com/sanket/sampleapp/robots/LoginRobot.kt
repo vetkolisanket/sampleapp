@@ -4,6 +4,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.rule.ActivityTestRule
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.Espresso
+import com.sanket.sampleapp.features.onboarding.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.LoginActivity
 
 /**
@@ -37,5 +38,36 @@ class LoginRobot {
             rule.activity.showMessage(errorMessage)
         }
         return this
+    }
+
+    fun isEmailFieldVisible(): LoginRobot {
+        Espresso.isViewVisible(R.id.etEmail)
+        return this
+    }
+
+    fun enterEmail(email: String): LoginRobot {
+        Espresso.enterText(R.id.etEmail, email)
+        return this
+    }
+
+    fun isPasswordFieldVisible(): LoginRobot {
+        Espresso.isViewVisible(R.id.etPassword)
+        return this
+    }
+
+    fun enterPassword(password: String): LoginRobot {
+        Espresso.enterText(R.id.etPassword, password)
+        return this
+    }
+
+    fun sendMockSuccessResponse(rule: ActivityTestRule<LoginActivity>): LoginRobot {
+        rule.activity.run {
+            rule.activity.onLoginSuccess()
+        }
+        return this
+    }
+
+    fun isHomeActivityOpen() {
+        Espresso.isActivityOpen(HomeActivity::class.java.name)
     }
 }
