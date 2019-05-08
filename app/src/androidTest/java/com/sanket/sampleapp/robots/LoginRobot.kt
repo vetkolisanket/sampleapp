@@ -41,22 +41,22 @@ class LoginRobot {
     }
 
     fun isEmailFieldVisible(): LoginRobot {
-        Espresso.isViewVisible(R.id.etEmail)
+        Espresso.isViewVisible(R.id.tietEmail)
         return this
     }
 
     fun enterEmail(email: String): LoginRobot {
-        Espresso.enterText(R.id.etEmail, email)
+        Espresso.enterText(R.id.tietEmail, email)
         return this
     }
 
     fun isPasswordFieldVisible(): LoginRobot {
-        Espresso.isViewVisible(R.id.etPassword)
+        Espresso.isViewVisible(R.id.tietPassword)
         return this
     }
 
     fun enterPassword(password: String): LoginRobot {
-        Espresso.enterText(R.id.etPassword, password)
+        Espresso.enterText(R.id.tietPassword, password)
         return this
     }
 

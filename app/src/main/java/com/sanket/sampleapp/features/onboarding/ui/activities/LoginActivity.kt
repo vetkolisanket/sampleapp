@@ -36,8 +36,8 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
 
     private fun initOnClickListeners() {
         btnLogin.setOnClickListener {
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
+            val email = tietEmail.text.toString()
+            val password = tietPassword.text.toString()
             if (presenter.isInputValid(email, password)) {
                 presenter.login(email, password)
             }
@@ -54,15 +54,15 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
     }
 
     override fun showEmailEmptyError() {
-        etEmail.error = getString(R.string.error_email_empty)
+        tietEmail.error = getString(R.string.error_email_empty)
     }
 
     override fun showPasswordEmptyError() {
-        etPassword.error = getString(R.string.error_password_empty)
+        tietPassword.error = getString(R.string.error_password_empty)
     }
 
     override fun showPasswordInvalidError() {
-        etPassword.error = getString(R.string.error_password_invalid)
+        tietPassword.error = getString(R.string.error_password_invalid)
     }
 
 }
