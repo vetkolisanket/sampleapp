@@ -29,7 +29,6 @@ class LoginPresenter: ILoginContract.Presenter {
     }
 
     override fun login(email: String, password: String) {
-
     }
 
     override fun attachView(view: ILoginContract.View) {

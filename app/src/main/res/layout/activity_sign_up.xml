@@ -7,4 +7,82 @@
     android:layout_height="match_parent"
     tools:context=".features.onboarding.ui.activities.SignUpActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/tilFullName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/full_name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/tilFullName"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+        android:id="@+id/tilEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/tilMobile">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mobile"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tilMobile" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/tilPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        tools:text="By signing up I agree to Terms and Service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTNC" android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+
+    <Button
+        android:text="@string/done"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDone" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/tvTNC"
+        style="@style/Button.LoginSignUp"
+        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+
+    <TextView
+        tools:text="Already a member? LOGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

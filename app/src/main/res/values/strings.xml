@@ -9,4 +9,7 @@
     <string name="error_email_empty">Email cannot be empty!</string>
     <string name="error_password_empty">Password cannot be empty</string>
     <string name="error_password_invalid">Password must be at least 4 characters long</string>
+    <string name="full_name">Full Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="done">Done</string>
 </resources>

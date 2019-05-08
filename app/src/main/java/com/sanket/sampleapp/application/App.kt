@@ -9,7 +9,7 @@ import android.app.Application
  */
 class App: Application() {
 
-    fun App.getSharedPreferences() = getSharedPreferences(Injection.PREFERENCE_FILE_NAME, Activity.MODE_PRIVATE)
+        fun App.getSharedPreferences() = getSharedPreferences(Injection.PREFERENCE_FILE_NAME, Activity.MODE_PRIVATE)
 
     override fun onCreate() {
         super.onCreate()
