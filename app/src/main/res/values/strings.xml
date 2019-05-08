@@ -6,4 +6,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="error_email_empty">Email cannot be empty!</string>
+    <string name="error_password_empty">Password cannot be empty</string>
+    <string name="error_password_invalid">Password must be at least 4 characters long</string>
 </resources>

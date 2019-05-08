@@ -17,4 +17,7 @@ object Constants {
         const val TOAST = "toast"
     }
 
+    object MOCK {
+        const val LOGIN_PRESENTER: String = "MockLoginPresenter"
+    }
 }
