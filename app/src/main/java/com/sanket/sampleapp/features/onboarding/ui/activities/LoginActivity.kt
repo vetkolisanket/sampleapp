@@ -56,26 +56,29 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
             }
         }
         tvForgotPassword.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            val callback = object : ForgotPasswordDialogFragment.Callback {
-                override fun onOkClick(email: String) {
-                    if (presenter.isEmailValid(email)) {
-                        presenter.sendResetPasswordLinkIfEmailExistsInDatabase(email)
-                    }
+            showForgotPasswordDialog()
+        }
+    }
+
+    private fun showForgotPasswordDialog() {
+        val transaction = supportFragmentManager.beginTransaction()
+        val callback = object : ForgotPasswordDialogFragment.Callback {
+            override fun onOkClick(email: String) {
+                if (presenter.isEmailValid(email)) {
+                    presenter.sendResetPasswordLinkIfEmailExistsInDatabase(email)
                 }
             }
-            val fragment = supportFragmentManager.findFragmentByTag(Constants.FragmentTags.FORGOT_PASSWORD)
-            if (fragment != null) {
-                (fragment as ForgotPasswordDialogFragment).callback = callback
-                fragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
-//                transaction.remove(fragment)
-//                transaction.addToBackStack(null)
-            }
-            else {
-                val dialogFragment = ForgotPasswordDialogFragment()
-                dialogFragment.callback = callback
-                dialogFragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
-            }
+        }
+        val fragment = supportFragmentManager.findFragmentByTag(Constants.FragmentTags.FORGOT_PASSWORD)
+        if (fragment != null) {
+            (fragment as ForgotPasswordDialogFragment).callback = callback
+            fragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
+    //                transaction.remove(fragment)
+    //                transaction.addToBackStack(null)
+        } else {
+            val dialogFragment = ForgotPasswordDialogFragment()
+            dialogFragment.callback = callback
+            dialogFragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
         }
     }
 
@@ -86,18 +89,21 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
     }
 
     override fun showEmailEmptyError() {
-        tietEmail.error = getString(R.string.error_email_empty)
-        showMessage(R.string.error_email_empty)
+        val errorMessage = getString(R.string.error_email_empty)
+        tietEmail.error = errorMessage
+        showMessage(errorMessage)
     }
 
     override fun showPasswordEmptyError() {
-        tietPassword.error = getString(R.string.error_password_empty)
-        showMessage(R.string.error_password_empty)
+        val errorMessage = getString(R.string.error_password_empty)
+        tietPassword.error = errorMessage
+        showMessage(errorMessage)
     }
 
     override fun showPasswordInvalidError() {
-        tietPassword.error = getString(R.string.error_password_invalid)
-        showMessage(R.string.error_password_invalid)
+        val errorMessage = getString(R.string.error_password_invalid)
+        tietPassword.error = errorMessage
+        showMessage(errorMessage)
     }
 
 }

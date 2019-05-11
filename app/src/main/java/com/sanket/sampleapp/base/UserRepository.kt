@@ -21,4 +21,17 @@ object UserRepository: BaseRepository() {
         restResponse.message = "Something went wrong!"
         restResponseCallback.onResponse(restResponse)
     }
+
+    fun signUp(
+        fullName: String,
+        email: String,
+        mobileNo: String,
+        password: String,
+        restResponseCallback: RestResponseCallback<Any>
+    ) {
+        val restResponse = RestResponse<Any>()
+        restResponse.status = Random.nextBoolean()
+        restResponse.message = "Something went wrong!"
+        restResponseCallback.onResponse(restResponse)
+    }
 }

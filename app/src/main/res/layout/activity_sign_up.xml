@@ -29,10 +29,12 @@
         android:id="@+id/tilEmail">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"/>
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content" android:layout_marginTop="8dp"
@@ -41,10 +43,13 @@
         android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/tilMobile">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="phone"
             android:hint="@string/mobile"/>
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content" android:layout_marginTop="8dp"
@@ -53,6 +58,7 @@
         android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:id="@+id/tilPassword">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"/>

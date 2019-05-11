@@ -16,11 +16,11 @@ class LoginPresenter: ILoginContract.Presenter {
 
     override fun isInputValid(email: String, password: String): Boolean {
         return when {
-            TextUtils.isEmpty(email.trim()) -> {
+            email.isBlank() -> {
                 view!!.showEmailEmptyError()
                 false
             }
-            TextUtils.isEmpty(password.trim()) -> {
+            password.isBlank() -> {
                 view!!.showPasswordEmptyError()
                 false
             }

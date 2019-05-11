@@ -1,5 +1,6 @@
 package com.sanket.sampleapp.features.onboarding.ui.activities
 
+import Injection
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -11,13 +12,20 @@ import android.text.style.ClickableSpan
 import android.view.View
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
+import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
+import com.sanket.sampleapp.features.onboarding.contracts.ISignUpContract
+import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUpActivity : BaseActivity() {
+class SignUpActivity : BaseActivity(), ISignUpContract.View {
+
+    private val presenter: ISignUpContract.Presenter by unsafeLazy { Injection.getSignUpPresenter() }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, SignUpActivity::class.java)
     }
+
+    //Lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +33,18 @@ class SignUpActivity : BaseActivity() {
 
         init()
     }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.attachView(this)
+    }
+
+    override fun onPause() {
+        presenter.detachView()
+        super.onPause()
+    }
+
+    //Helper
 
     private fun init() {
         initToolbar()
@@ -34,6 +54,19 @@ class SignUpActivity : BaseActivity() {
     private fun initViews() {
         initLoginView()
         initTOSView()
+        initOnClickListeners()
+    }
+
+    private fun initOnClickListeners() {
+        btnDone.setOnClickListener {
+            val fullName = tietFullName.text.toString()
+            val email = tietEmail.text.toString()
+            val mobileNo = tietMobile.text.toString()
+            val password = tietPassword.text.toString()
+            if (presenter.isInputValid(fullName, email, mobileNo, password)) {
+                presenter.signUp(fullName, email, mobileNo, password)
+            }
+        }
     }
 
     private fun initTOSView() {
@@ -83,4 +116,41 @@ class SignUpActivity : BaseActivity() {
         tvLogin.text = spannableString
         tvLogin.movementMethod = LinkMovementMethod.getInstance()
     }
+
+    //Contract
+
+    override fun showFullNameEmptyError() {
+        val errorMessage = getString(R.string.error_full_name_empty)
+        tietFullName.error = errorMessage
+        showMessage(errorMessage)
+    }
+
+    override fun showInvalidEmailError() {
+        val errorMessage = getString(R.string.error_email_empty)
+        tietEmail.error = errorMessage
+        showMessage(errorMessage)
+    }
+
+    override fun showInvalidMobileNoError() {
+        val errorMessage = getString(R.string.error_mobile_no_invalid)
+        tietMobile.error = errorMessage
+        showMessage(errorMessage)
+    }
+
+    override fun showPasswordEmptyError() {
+        val errorMessage = getString(R.string.error_password_empty)
+        tietPassword.error = errorMessage
+        showMessage(errorMessage)
+    }
+
+    override fun showInvalidPasswordError() {
+        val errorMessage = getString(R.string.error_password_invalid)
+        tietPassword.error = errorMessage
+        showMessage(errorMessage)
+    }
+
+    override fun onSignUpSuccess() {
+        startActivity(HomeActivity.newIntent(this))
+    }
+
 }
