@@ -38,19 +38,19 @@ android {
     // If you need to add more flavors, consider using flavor dimensions.
     productFlavors {
         mock {
-//            manifestPlaceholders = [appName: "AgroStar-M"]
-//            applicationIdSuffix ".debugMock"
+            manifestPlaceholders = [appName: "SampleApp-M"]
+            applicationIdSuffix ".debugMock"
             // Assigns this product flavor to the "version" flavor dimension.
             // This property is optional if you are using only one dimension.
             dimension "version"
         }
         staging {
-//            manifestPlaceholders = [appName: "AgroStar-D"]
-//            applicationIdSuffix ".debug"
+            manifestPlaceholders = [appName: "SampleApp-D"]
+            applicationIdSuffix ".debug"
             dimension "version"
         }
         prod {
-//            manifestPlaceholders = [appName: "AgroStar"]
+            manifestPlaceholders = [appName: "SampleApp"]
             dimension "version"
         }
     }
