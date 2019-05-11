@@ -25,6 +25,10 @@ interface ILoginContract {
 
         fun login(email: String, password: String)
 
+        fun isEmailValid(email: String): Boolean
+
+        fun sendResetPasswordLinkIfEmailExistsInDatabase(email: String)
+
     }
 
 }

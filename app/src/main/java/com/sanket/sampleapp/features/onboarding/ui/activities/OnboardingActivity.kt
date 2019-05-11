@@ -3,13 +3,13 @@ package com.sanket.sampleapp.features.onboarding.ui.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.sanket.sampleapp.R
-import com.sanket.sampleapp.features.onboarding.ui.OnboardingAdapter
+import com.sanket.sampleapp.base.BaseActivity
+import com.sanket.sampleapp.features.onboarding.ui.adapters.OnboardingAdapter
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
-class OnboardingActivity : AppCompatActivity() {
+class OnboardingActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context) = Intent(context, OnboardingActivity::class.java)

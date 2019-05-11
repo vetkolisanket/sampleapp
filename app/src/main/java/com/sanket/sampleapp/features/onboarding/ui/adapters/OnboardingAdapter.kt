@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.features.onboarding.ui
+package com.sanket.sampleapp.features.onboarding.ui.adapters
 
 import android.view.View
 import android.view.ViewGroup

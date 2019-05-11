@@ -1,6 +1,7 @@
 package com.sanket.sampleapp.features.onboarding.presenters
 
 import android.text.TextUtils
+import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.UserRepository
 import com.sanket.sampleapp.base.communication.RestResponse
 import com.sanket.sampleapp.base.communication.RestResponseCallback
@@ -36,7 +37,25 @@ class LoginPresenter: ILoginContract.Presenter {
             override fun onResponse(restResponse: RestResponse<Any>) {
                 if (restResponse.status) {
                     view!!.onLoginSuccess()
+                } else {
+                    view!!.showMessage(restResponse.message!!)
                 }
+            }
+        })
+    }
+
+    override fun isEmailValid(email: String): Boolean {
+        if (TextUtils.isEmpty(email.trim())) {
+            view!!.showMessage(R.string.error_email_empty)
+            return false
+        }
+        return true
+    }
+
+    override fun sendResetPasswordLinkIfEmailExistsInDatabase(email: String) {
+        UserRepository.sendResetPasswordLinkIfEmailExistsInDatabase(email, object : RestResponseCallback<Any> {
+            override fun onResponse(restResponse: RestResponse<Any>) {
+                view!!.showMessage(restResponse.message!!)
             }
         })
     }

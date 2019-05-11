@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.sanket.sampleapp.R
+import com.sanket.sampleapp.application.Constants
 import com.sanket.sampleapp.base.BaseActivity
 import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.contracts.ILoginContract
+import com.sanket.sampleapp.features.onboarding.ui.dialogs.ForgotPasswordDialogFragment
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -54,7 +56,26 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
             }
         }
         tvForgotPassword.setOnClickListener {
-
+            val transaction = supportFragmentManager.beginTransaction()
+            val callback = object : ForgotPasswordDialogFragment.Callback {
+                override fun onOkClick(email: String) {
+                    if (presenter.isEmailValid(email)) {
+                        presenter.sendResetPasswordLinkIfEmailExistsInDatabase(email)
+                    }
+                }
+            }
+            val fragment = supportFragmentManager.findFragmentByTag(Constants.FragmentTags.FORGOT_PASSWORD)
+            if (fragment != null) {
+                (fragment as ForgotPasswordDialogFragment).callback = callback
+                fragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
+//                transaction.remove(fragment)
+//                transaction.addToBackStack(null)
+            }
+            else {
+                val dialogFragment = ForgotPasswordDialogFragment()
+                dialogFragment.callback = callback
+                dialogFragment.show(transaction, Constants.FragmentTags.FORGOT_PASSWORD)
+            }
         }
     }
 

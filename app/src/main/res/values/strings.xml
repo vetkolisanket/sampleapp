@@ -15,4 +15,6 @@
     <string name="already_a_member">Already a member?</string>
     <string name="tos_part_1">By signing up, I agree to SampleApp\'s</string>
     <string name="tos_part_2">Terms of Service</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>

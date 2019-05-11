@@ -4,6 +4,9 @@ package com.sanket.sampleapp.application
  * Created by Sanket on 02/05/19.
  */
 object Constants {
+    object FragmentTags {
+        const val FORGOT_PASSWORD = "forgotPassword"
+    }
 
     const val LOGGER_TAG = "sampleApp"
 
@@ -14,8 +17,8 @@ object Constants {
     }
 
     object MessageType {
-        const val TOAST = "TOAST"
-        const val SNACKBAR = "SNACKBAR"
+        const val TOAST = "toast"
+        const val SNACKBAR = "snackbar"
     }
 
     object MOCK {
