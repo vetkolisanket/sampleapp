@@ -14,7 +14,8 @@ object Constants {
     }
 
     object MessageType {
-        const val TOAST = "toast"
+        const val TOAST = "TOAST"
+        const val SNACKBAR = "SNACKBAR"
     }
 
     object MOCK {

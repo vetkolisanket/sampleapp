@@ -1,12 +1,12 @@
-package com.sanket.sampleapp.features.onboarding.ui.activities
+package com.sanket.sampleapp.features.home.ui.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.sanket.sampleapp.R
+import com.sanket.sampleapp.base.BaseActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context) = Intent(context, HomeActivity::class.java)
@@ -15,5 +15,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        init()
+    }
+
+    private fun init() {
+        initToolbar()
     }
 }

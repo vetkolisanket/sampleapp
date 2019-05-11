@@ -6,13 +6,14 @@ import android.content.Intent
 import android.os.Bundle
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
+import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.contracts.ILoginContract
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), ILoginContract.View {
 
-    val presenter by unsafeLazy { Injection.getLoginPresenter() }
+    private val presenter by unsafeLazy { Injection.getLoginPresenter() }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, LoginActivity::class.java)
@@ -25,6 +26,16 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
         setContentView(R.layout.activity_login)
 
         init()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.attachView(this)
+    }
+
+    override fun onPause() {
+        presenter.detachView()
+        super.onPause()
     }
 
     //Helper
@@ -55,14 +66,17 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
 
     override fun showEmailEmptyError() {
         tietEmail.error = getString(R.string.error_email_empty)
+        showMessage(R.string.error_email_empty)
     }
 
     override fun showPasswordEmptyError() {
         tietPassword.error = getString(R.string.error_password_empty)
+        showMessage(R.string.error_password_empty)
     }
 
     override fun showPasswordInvalidError() {
         tietPassword.error = getString(R.string.error_password_invalid)
+        showMessage(R.string.error_password_invalid)
     }
 
 }

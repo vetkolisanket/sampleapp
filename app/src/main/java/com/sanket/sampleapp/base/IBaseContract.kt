@@ -1,6 +1,7 @@
 package com.sanket.sampleapp.base
 
 import android.content.Context
+import androidx.annotation.StringRes
 import com.sanket.sampleapp.application.Constants
 
 /**
@@ -13,6 +14,8 @@ interface IBaseContract {
         fun getContext(): Context
 
         fun showMessage(message: String, type: String = Constants.MessageType.TOAST)
+
+        fun showMessage(@StringRes messageId: Int, type: String = Constants.MessageType.TOAST)
 
     }
 

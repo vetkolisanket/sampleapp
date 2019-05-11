@@ -11,12 +11,17 @@ import androidx.appcompat.app.AppCompatActivity
  */
 @SuppressLint("Registered")
 open class BaseActivity: AppCompatActivity(), IBaseContract.View {
+
     override fun getContext(): Context {
         return this
     }
 
     override fun showMessage(message: String, type: String) {
         toast(message)
+    }
+
+    override fun showMessage(messageId: Int, type: String) {
+        showMessage(getString(messageId), type)
     }
 
     protected fun initToolbar() {
