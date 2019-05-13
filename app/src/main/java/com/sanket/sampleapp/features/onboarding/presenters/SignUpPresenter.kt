@@ -8,7 +8,7 @@ import com.sanket.sampleapp.features.onboarding.contracts.ISignUpContract
 /**
  * Created by Sanket on 11/05/19.
  */
-class SignUpPresenter: ISignUpContract.Presenter {
+open class SignUpPresenter: ISignUpContract.Presenter {
 
     var view: ISignUpContract.View? = null
 

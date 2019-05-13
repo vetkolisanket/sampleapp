@@ -4,7 +4,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.rule.ActivityTestRule
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.Espresso
-import com.sanket.sampleapp.features.onboarding.ui.activities.HomeActivity
+import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.LoginActivity
 
 /**

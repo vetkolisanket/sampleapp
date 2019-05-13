@@ -8,6 +8,7 @@ import com.sanket.sampleapp.robots.LoginRobot
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.MockitoAnnotations
 
 /**
  * Created by Sanket on 04/05/19.
@@ -22,7 +23,7 @@ class LoginActivityTest: BaseInstrumentationTest() {
     @Before
     override fun setup() {
         super.setup()
-//        MockitoAnnotations.initMocks(this)
+        MockitoAnnotations.initMocks(this)
     }
 
     @Test
