@@ -10,7 +10,8 @@ import com.sanket.sampleapp.features.onboarding.contracts.ILoginContract
 /**
  * Created by Sanket on 07/05/19.
  */
-class LoginPresenter: ILoginContract.Presenter {
+// Have to keep it open for mocking during instrumentation testing
+open class LoginPresenter: ILoginContract.Presenter {
 
     private var view: ILoginContract.View? = null
 

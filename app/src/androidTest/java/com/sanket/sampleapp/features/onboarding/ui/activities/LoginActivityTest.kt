@@ -3,11 +3,15 @@ package com.sanket.sampleapp.features.onboarding.ui.activities
 import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
+import com.sanket.sampleapp.application.AppCache
+import com.sanket.sampleapp.application.Constants
 import com.sanket.sampleapp.base.BaseInstrumentationTest
+import com.sanket.sampleapp.features.onboarding.presenters.LoginPresenter
 import com.sanket.sampleapp.robots.LoginRobot
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 /**
@@ -20,10 +24,14 @@ class LoginActivityTest: BaseInstrumentationTest() {
 
     private val robot: LoginRobot by lazy { LoginRobot() }
 
+    @Mock
+    private lateinit var mockPresenter: LoginPresenter
+
     @Before
     override fun setup() {
         super.setup()
         MockitoAnnotations.initMocks(this)
+        AppCache.put(Constants.MOCK.LOGIN_PRESENTER, mockPresenter)
     }
 
     @Test
