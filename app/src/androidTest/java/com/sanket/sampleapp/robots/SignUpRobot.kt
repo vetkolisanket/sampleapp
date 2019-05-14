@@ -2,6 +2,9 @@ package com.sanket.sampleapp.robots
 
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.rule.ActivityTestRule
+import com.sanket.sampleapp.R
+import com.sanket.sampleapp.base.Espresso
+import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.SignUpActivity
 
 /**
@@ -11,5 +14,39 @@ class SignUpRobot {
     fun launch(rule: ActivityTestRule<SignUpActivity>): SignUpRobot {
         rule.launchActivity(SignUpActivity.newIntent(ApplicationProvider.getApplicationContext()))
         return this
+    }
+
+    fun enterName(name: String): SignUpRobot {
+        Espresso.enterText(R.id.tietFullName, name)
+        return this
+    }
+
+    fun enterEmail(email: String): SignUpRobot {
+        Espresso.enterText(R.id.tietEmail, email)
+        return this
+    }
+
+    fun enterMobile(mobile: String): SignUpRobot {
+        Espresso.enterText(R.id.tietMobile, mobile)
+        return this
+    }
+
+    fun enterPassword(password: String): SignUpRobot {
+        Espresso.enterText(R.id.tietPassword, password)
+        return this
+    }
+
+    fun clickDone(): SignUpRobot {
+        Espresso.performClick(R.id.btnDone)
+        return this
+    }
+
+    fun sendMockSuccessResponse(rule: ActivityTestRule<SignUpActivity>): SignUpRobot {
+        rule.activity.runOnUiThread { rule.activity.onSignUpSuccess() }
+        return this
+    }
+
+    fun verifyHomeActivityIsOpen() {
+        Espresso.isActivityOpen(HomeActivity::class.java.name)
     }
 }

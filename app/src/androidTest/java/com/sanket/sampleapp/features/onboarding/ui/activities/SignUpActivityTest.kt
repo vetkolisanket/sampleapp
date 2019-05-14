@@ -1,5 +1,6 @@
 package com.sanket.sampleapp.features.onboarding.ui.activities
 
+import androidx.test.espresso.intent.Intents
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.sanket.sampleapp.application.AppCache
@@ -36,6 +37,48 @@ class SignUpActivityTest: BaseInstrumentationTest() {
     @Test
     fun launch_activity() {
         robot.launch(rule)
+    }
+
+    @Test
+    fun should_show_name_empty_error_on_click_of_done_click() {
+
+    }
+
+    @Test
+    fun should_show_email_empty_error_on_click_of_done_click() {
+
+    }
+
+    @Test
+    fun should_show_mobile_no_empty_error_on_click_of_done_click() {
+
+    }
+
+    @Test
+    fun should_show_password_empty_error_on_click_of_done_click() {
+
+    }
+
+    @Test
+    fun should_show_password_invalid_error_on_click_of_done_click() {
+
+    }
+
+    @Test
+    fun should_open_home_activity_on_entering_valid_input_and_successful_sign_up() {
+        Intents.init()
+
+        robot
+            .launch(rule)
+            .enterName("Mock Name")
+            .enterEmail("mockemail@abc.com")
+            .enterMobile("5555555555")
+            .enterPassword("abcdefgh")
+            .clickDone()
+            .sendMockSuccessResponse(rule)
+            .verifyHomeActivityIsOpen()
+
+        Intents.release()
     }
 
 }
