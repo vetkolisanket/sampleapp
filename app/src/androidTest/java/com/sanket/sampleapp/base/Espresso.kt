@@ -8,6 +8,7 @@ import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
+import androidx.test.espresso.matcher.ViewMatchers.hasErrorText
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 
@@ -34,5 +35,9 @@ object Espresso {
 
     fun enterText(@IdRes id: Int, text: String) {
         onView(withId(id)).perform(clearText(), typeText(text))
+    }
+
+    fun isErrorShownInEditText(@IdRes id: Int, errorMessage: String) {
+        onView(withId(id)).check(matches(hasErrorText(errorMessage)))
     }
 }

@@ -41,7 +41,12 @@ class SignUpActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_show_name_empty_error_on_click_of_done_click() {
+        AppCache.put(Constants.MOCK.SIGN_UP_PRESENTER, SignUpPresenter())
 
+        robot
+            .launch(rule)
+            .clickDone()
+            .verifyErrorIsShownInNameEditText()
     }
 
     @Test
@@ -66,14 +71,19 @@ class SignUpActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_open_home_activity_on_entering_valid_input_and_successful_sign_up() {
+        val mockName = "Mock Name"
+        val mockEmail = "mockemail@abc.com"
+        val mockMobileNo = "5555555555"
+        val mockPassword = "abcdefgh"
+
         Intents.init()
 
         robot
             .launch(rule)
-            .enterName("Mock Name")
-            .enterEmail("mockemail@abc.com")
-            .enterMobile("5555555555")
-            .enterPassword("abcdefgh")
+            .enterName(mockName)
+            .enterEmail(mockEmail)
+            .enterMobile(mockMobileNo)
+            .enterPassword(mockPassword)
             .clickDone()
             .sendMockSuccessResponse(rule)
             .verifyHomeActivityIsOpen()

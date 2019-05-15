@@ -3,6 +3,7 @@ package com.sanket.sampleapp.robots
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.rule.ActivityTestRule
 import com.sanket.sampleapp.R
+import com.sanket.sampleapp.application.App
 import com.sanket.sampleapp.base.Espresso
 import com.sanket.sampleapp.features.home.ui.activities.HomeActivity
 import com.sanket.sampleapp.features.onboarding.ui.activities.SignUpActivity
@@ -48,5 +49,10 @@ class SignUpRobot {
 
     fun verifyHomeActivityIsOpen() {
         Espresso.isActivityOpen(HomeActivity::class.java.name)
+    }
+
+    fun verifyErrorIsShownInNameEditText() {
+        val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_full_name_empty)
+        Espresso.isErrorShownInEditText(R.id.tietFullName, errorMessage)
     }
 }
