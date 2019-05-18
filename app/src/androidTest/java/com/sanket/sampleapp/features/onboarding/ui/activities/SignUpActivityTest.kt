@@ -66,7 +66,21 @@ class SignUpActivityTest: BaseInstrumentationTest() {
 
     @Test
     fun should_show_password_invalid_error_on_click_of_done_click() {
+        AppCache.put(Constants.MOCK.SIGN_UP_PRESENTER, SignUpPresenter())
 
+        val mockName = "Mock Name"
+        val mockEmail = "mockemail@abc.com"
+        val mockMobileNo = "5555555555"
+        val mockPassword = "abc"
+
+        robot
+            .launch(rule)
+            .enterName(mockName)
+            .enterEmail(mockEmail)
+            .enterMobile(mockMobileNo)
+            .enterPassword(mockPassword)
+            .clickDone()
+            .verifyPasswordInvalidErrorIsShown()
     }
 
     @Test

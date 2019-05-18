@@ -55,4 +55,9 @@ class SignUpRobot {
         val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_full_name_empty)
         Espresso.isErrorShownInEditText(R.id.tietFullName, errorMessage)
     }
+
+    fun verifyPasswordInvalidErrorIsShown() {
+        val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_password_invalid)
+        Espresso.isErrorShownInEditText(R.id.tietPassword, errorMessage)
+    }
 }
