@@ -60,4 +60,19 @@ class SignUpRobot {
         val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_password_invalid)
         Espresso.isErrorShownInEditText(R.id.tietPassword, errorMessage)
     }
+
+    fun verifyPasswordEmptyErrorIsShown() {
+        val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_password_empty)
+        Espresso.isErrorShownInEditText(R.id.tietPassword, errorMessage)
+    }
+
+    fun verifyMobileNoEmptyErrorIsShown() {
+        val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_mobile_no_invalid)
+        Espresso.isErrorShownInEditText(R.id.tietMobile, errorMessage)
+    }
+
+    fun verifyEmailEmptyErrorIsShown() {
+        val errorMessage = ApplicationProvider.getApplicationContext<App>().getString(R.string.error_email_empty)
+        Espresso.isErrorShownInEditText(R.id.tietEmail, errorMessage)
+    }
 }
