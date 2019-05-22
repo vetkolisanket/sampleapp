@@ -3,6 +3,7 @@ package com.sanket.sampleapp.base
 import Injection
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.intent.Intents
@@ -10,6 +11,7 @@ import com.sanket.sampleapp.BuildConfig
 import com.sanket.sampleapp.application.AppCache
 import com.sanket.sampleapp.application.Constants
 import com.sanket.sampleapp.utils.Logger
+import com.sanket.sampleapp.utils.unsafeLazy
 import org.junit.After
 import org.junit.Before
 
@@ -27,6 +29,9 @@ open class BaseInstrumentationTest {
         }
     }
 
+    val sharedPreferences by unsafeLazy {   ApplicationProvider.getApplicationContext<Context>()
+        .getSharedPreferences(Injection.PREFERENCE_FILE_NAME, Activity.MODE_PRIVATE) }
+
     @Before
     open fun setup() {
         if (!canProvideRealImpl()) {
@@ -36,8 +41,6 @@ open class BaseInstrumentationTest {
 
     @After
     open fun teardown() {
-        val sharedPreferences = ApplicationProvider.getApplicationContext<Context>()
-            .getSharedPreferences(Injection.PREFERENCE_FILE_NAME, Activity.MODE_PRIVATE)
         sharedPreferences.edit {
             clear()
         }
@@ -47,6 +50,10 @@ open class BaseInstrumentationTest {
         } catch (e: Exception) {
             Logger.logError(e.localizedMessage)
         }
+    }
+
+    open fun getPreferences(): SharedPreferences? {
+        return sharedPreferences
     }
 
 }

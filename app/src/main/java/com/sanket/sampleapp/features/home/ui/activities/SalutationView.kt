@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.sanket.sampleapp.R
+import com.sanket.sampleapp.User
 import kotlinx.android.synthetic.main.view_salutation.view.*
 
 /**
@@ -36,7 +37,8 @@ class SalutationView: FrameLayout {
 
     private fun initLayout() {
         (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.view_salutation, this)
-        tvTitle.text = context.getString(R.string.hey_s, "User")
+        val user = User.getUser()
+        tvTitle.text = context.getString(R.string.hey_s, user!!.name)
     }
 
     private fun initOnClickListener() {

@@ -4,6 +4,10 @@ package com.sanket.sampleapp.application
  * Created by Sanket on 02/05/19.
  */
 object Constants {
+    object BUNDLE_KEYS {
+        const val USER: String = "User"
+    }
+
     object FragmentTags {
         const val FORGOT_PASSWORD = "forgotPassword"
     }
