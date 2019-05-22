@@ -19,4 +19,9 @@
     <string name="cancel">Cancel</string>
     <string name="error_full_name_empty">Full name cannot be empty!</string>
     <string name="error_mobile_no_invalid">Please enter a valid mobile no!</string>
+    <string name="activate_pass">Activate Pass</string>
+    <string name="hey_s">Hey %s</string>
+    <string name="salutation_description">Welcome to the world of fitness freedom. Access all the activities listed
+        below with your single Fitato Pass.
+    </string>
 </resources>

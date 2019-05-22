@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/white"
+              android:padding="@dimen/default_item_padding">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:id="@+id/tvTitle"
+              tools:text="Hey User"
+              style="@style/Text.Title"
+              android:layout_marginBottom="@dimen/default_item_margin"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:id="@+id/tvDescription"
+              android:text="@string/salutation_description"
+              style="@style/Text.Description"
+              android:layout_marginBottom="@dimen/default_item_margin"/>
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/btnActivatePass"
+            android:layout_gravity="center_horizontal"
+            style="@style/Button.Default"
+            android:textAllCaps="false"
+            android:text="@string/activate_pass"/>
+
+</LinearLayout>

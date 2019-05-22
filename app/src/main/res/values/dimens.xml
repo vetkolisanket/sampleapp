@@ -3,4 +3,9 @@
 
     <dimen name="text_style_large">24sp</dimen>
 
+    <dimen name="btn_default_left_right_padding">40dp</dimen>
+
+    <dimen name="default_item_padding">4dp</dimen>
+    <dimen name="default_item_margin">4dp</dimen>
+
 </resources>

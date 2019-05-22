@@ -36,4 +36,11 @@ class HomeActivityTest: BaseInstrumentationTest() {
         robot.launch(rule)
     }
 
+    @Test
+    fun should_show_salutation_card() {
+        robot
+            .launch(rule)
+            .isSalutationCardVisible()
+    }
+
 }

@@ -35,7 +35,7 @@ open class BaseActivity: AppCompatActivity(), IBaseContract.View {
         return super.onOptionsItemSelected(item)
     }
 
-    fun toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+    private fun toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(this, message, duration).show()
     }
 
