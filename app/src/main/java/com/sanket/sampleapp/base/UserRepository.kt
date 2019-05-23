@@ -1,7 +1,7 @@
 package com.sanket.sampleapp.base
 
-import com.sanket.sampleapp.base.communication.RestResponse
-import com.sanket.sampleapp.base.communication.RestResponseCallback
+import com.sanket.sampleapp.communication.RestResponse
+import com.sanket.sampleapp.communication.RestResponseCallback
 import kotlin.random.Random
 
 /**

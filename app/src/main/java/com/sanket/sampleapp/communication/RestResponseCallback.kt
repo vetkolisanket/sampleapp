@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.base.communication
+package com.sanket.sampleapp.communication
 
 /**
  * Created by Sanket on 11/05/19.

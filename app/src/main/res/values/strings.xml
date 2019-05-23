@@ -22,6 +22,8 @@
     <string name="activate_pass">Activate Pass</string>
     <string name="hey_s">Hey %s</string>
     <string name="salutation_description">Welcome to the world of fitness freedom. Access all the activities listed
-        below with your single Fitato Pass.
+        below with your single Sample Pass.
     </string>
+    <string name="reasons_to_buy_sample_app">Reasons to buy sample app</string>
+    <string name="h_num">#%s</string>
 </resources>

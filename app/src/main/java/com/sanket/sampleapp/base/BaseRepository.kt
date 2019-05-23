@@ -2,7 +2,7 @@ package com.sanket.sampleapp.base
 
 import android.content.SharedPreferences
 import com.sanket.sampleapp.application.App
-import com.sanket.sampleapp.base.communication.ResponseObserverHelper
+import com.sanket.sampleapp.communication.ResponseObserverHelper
 import com.sanket.sampleapp.utils.unsafeLazy
 import java.util.ArrayList
 

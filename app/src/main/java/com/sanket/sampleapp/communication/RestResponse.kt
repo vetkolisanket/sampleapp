@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.base.communication
+package com.sanket.sampleapp.communication
 
 import com.google.gson.annotations.SerializedName
 

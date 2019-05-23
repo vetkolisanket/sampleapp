@@ -1,8 +1,8 @@
 package com.sanket.sampleapp.features.onboarding.presenters
 
 import com.sanket.sampleapp.base.UserRepository
-import com.sanket.sampleapp.base.communication.RestResponse
-import com.sanket.sampleapp.base.communication.RestResponseCallback
+import com.sanket.sampleapp.communication.RestResponse
+import com.sanket.sampleapp.communication.RestResponseCallback
 import com.sanket.sampleapp.features.onboarding.contracts.ISignUpContract
 
 /**

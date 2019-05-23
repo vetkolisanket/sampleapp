@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.base.communication
+package com.sanket.sampleapp.communication
 
 import retrofit2.Response
 import retrofit2.Retrofit
