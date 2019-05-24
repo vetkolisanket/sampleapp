@@ -26,8 +26,8 @@ class LoginRobot {
         return this
     }
 
-    fun isErrorShown(errorMessage: String) {
-        Espresso.isToastVisibleWithMessage(errorMessage)
+    fun isErrorShown(rule: ActivityTestRule<LoginActivity>, errorMessage: String) {
+        Espresso.isToastVisibleWithMessage(rule.activity, errorMessage)
     }
 
     fun sendMockFailureResponse(

@@ -48,7 +48,7 @@ class LoginActivityTest: BaseInstrumentationTest() {
             .isLoginBtnVisible()
             .clickLoginBtn()
             .sendMockFailureResponse(rule, errorMessage)
-            .isErrorShown(errorMessage)
+            .isErrorShown(rule, errorMessage)
     }
 
     @Test
@@ -62,7 +62,7 @@ class LoginActivityTest: BaseInstrumentationTest() {
             .enterEmail(email)
             .clickLoginBtn()
             .sendMockFailureResponse(rule, errorMessage)
-            .isErrorShown(errorMessage)
+            .isErrorShown(rule, errorMessage)
     }
 
     @Test
