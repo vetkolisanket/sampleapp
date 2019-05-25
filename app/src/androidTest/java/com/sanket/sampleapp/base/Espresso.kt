@@ -46,4 +46,8 @@ object Espresso {
     fun isErrorShownInEditText(@IdRes id: Int, errorMessage: String) {
         onView(withId(id)).check(matches(hasErrorText(errorMessage)))
     }
+
+    fun isViewHidden(@IdRes id: Int) {
+        onView(withId(id)).check(matches(not(isDisplayed())))
+    }
 }

@@ -53,4 +53,14 @@ class HomeRobot {
         }
         return this
     }
+
+    fun isReasonsToBuyTitleNotVisible(): HomeRobot {
+        Espresso.isViewHidden(R.id.tvReasonsToBuyTitle)
+        return this
+    }
+
+    fun isReasonsToBuyListNotVisible(): HomeRobot {
+        Espresso.isViewHidden(R.id.rvReasonsToBuy)
+        return this
+    }
 }

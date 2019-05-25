@@ -60,10 +60,26 @@ class HomeActivityTest: BaseInstrumentationTest() {
         robot
             .launch(rule)
 //            .setupMockedReasonsToBuy(rule, mockPresenter)
+            .isReasonsToBuyTitleNotVisible()
+            .isReasonsToBuyListNotVisible()
             .verifyGetReasonsToBuyWasCalled(mockPresenter)
             .sendMockResponseToBuy(rule)
             .isReasonsToBuyTitleVisible()
             .isReasonsToBuyListVisible()
+    }
+
+    @Test
+    fun should_not_show_reasons_to_buy_on_no_response() {
+        val user = MockUtils.getUser()
+        user.saveUser()
+
+        robot
+            .launch(rule)
+            .isReasonsToBuyTitleNotVisible()
+            .isReasonsToBuyListNotVisible()
+            .verifyGetReasonsToBuyWasCalled(mockPresenter)
+            .isReasonsToBuyTitleNotVisible()
+            .isReasonsToBuyListNotVisible()
     }
 
 }

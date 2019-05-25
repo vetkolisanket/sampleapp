@@ -9,14 +9,14 @@ import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
 import com.sanket.sampleapp.features.home.ReasonToBuy
 import com.sanket.sampleapp.features.home.contracts.IHomeContract
+import com.sanket.sampleapp.utils.UiUtils
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity(), IHomeContract.View {
 
-    private val reasonsToBuy: MutableList<ReasonToBuy> by unsafeLazy { mutableListOf<ReasonToBuy>() }
-
     private val presenter: IHomeContract.Presenter by unsafeLazy { Injection.getHomePresenter() }
+    private val adapter by unsafeLazy { ReasonsToBuyAdapter() }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, HomeActivity::class.java)
@@ -51,14 +51,14 @@ class HomeActivity : BaseActivity(), IHomeContract.View {
 
     private fun initRecyclerView() {
         rvReasonsToBuy.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvReasonsToBuy.adapter = ReasonsToBuyAdapter(reasonsToBuy)
+        rvReasonsToBuy.adapter = adapter
     }
 
     //Contract
 
     override fun showReasonsToBuy(reasonsToBuy: MutableList<ReasonToBuy>) {
-        this.reasonsToBuy.addAll(reasonsToBuy)
-        rvReasonsToBuy.adapter!!.notifyDataSetChanged()
+        UiUtils.showHideViews(true, tvReasonsToBuyTitle, rvReasonsToBuy)
+        adapter.setItems(reasonsToBuy)
     }
 
 }
