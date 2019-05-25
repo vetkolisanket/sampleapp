@@ -13,7 +13,8 @@ object MockUtils {
         return user
     }
 
-    fun getReasonsToBuy(count: Int): List<ReasonToBuy> {
+    // TODO: 25/05/19 ask Jay is there a better way to loop than the way I have used
+    fun getReasonsToBuy(count: Int): MutableList<ReasonToBuy> {
         val reasonsToBuy = mutableListOf<ReasonToBuy>()
         for (item in 0 until count) {
             reasonsToBuy.add(getReasonToBuy())

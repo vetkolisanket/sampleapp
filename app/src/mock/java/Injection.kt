@@ -1,5 +1,6 @@
 import com.sanket.sampleapp.application.AppCache
 import com.sanket.sampleapp.application.Constants
+import com.sanket.sampleapp.features.home.contracts.IHomeContract
 import com.sanket.sampleapp.features.onboarding.contracts.ILoginContract
 import com.sanket.sampleapp.features.onboarding.contracts.ISignUpContract
 
@@ -15,5 +16,9 @@ object Injection {
 
     fun getSignUpPresenter(): ISignUpContract.Presenter {
         return AppCache[Constants.MOCK.SIGN_UP_PRESENTER] as ISignUpContract.Presenter
+    }
+
+    fun getHomePresenter(): IHomeContract.Presenter {
+        return AppCache[Constants.MOCK.HOME_PRESENTER] as IHomeContract.Presenter
     }
 }

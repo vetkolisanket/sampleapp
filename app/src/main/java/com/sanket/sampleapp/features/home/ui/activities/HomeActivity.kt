@@ -1,5 +1,6 @@
 package com.sanket.sampleapp.features.home.ui.activities
 
+import Injection
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -7,16 +8,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
 import com.sanket.sampleapp.features.home.ReasonToBuy
+import com.sanket.sampleapp.features.home.contracts.IHomeContract
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(), IHomeContract.View {
 
     private val reasonsToBuy: MutableList<ReasonToBuy> by unsafeLazy { mutableListOf<ReasonToBuy>() }
+
+    private val presenter: IHomeContract.Presenter by unsafeLazy { Injection.getHomePresenter() }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, HomeActivity::class.java)
     }
+
+    //Lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,31 +31,34 @@ class HomeActivity : BaseActivity() {
         init()
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.attachView(this)
+        presenter.getReasonsToBuy()
+    }
+
+    override fun onPause() {
+        presenter.detachView()
+        super.onPause()
+    }
+
+    //Helpers
+
     private fun init() {
         initToolbar()
         initRecyclerView()
     }
 
     private fun initRecyclerView() {
-        reasonsToBuy.addAll(getReasonsToBuy(5))
         rvReasonsToBuy.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvReasonsToBuy.adapter = ReasonsToBuyAdapter(reasonsToBuy)
     }
 
-    // TODO: 23/05/19 remove
-    fun getReasonsToBuy(count: Int): List<ReasonToBuy> {
-        val reasonsToBuy = mutableListOf<ReasonToBuy>()
-        for (item in 0 until count) {
-            reasonsToBuy.add(getReasonToBuy())
-        }
-        return reasonsToBuy
-    }
+    //Contract
 
-    fun getReasonToBuy(): ReasonToBuy {
-        val reasonToBuy = ReasonToBuy()
-        reasonToBuy.title = "Mock title"
-        reasonToBuy.description = "Mock description"
-        return reasonToBuy
+    override fun showReasonsToBuy(reasonsToBuy: MutableList<ReasonToBuy>) {
+        this.reasonsToBuy.addAll(reasonsToBuy)
+        rvReasonsToBuy.adapter!!.notifyDataSetChanged()
     }
 
 }

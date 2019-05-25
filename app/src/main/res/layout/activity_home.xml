@@ -18,6 +18,7 @@
                                                                          android:id="@+id/cvSalutation"/>
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/tvReasonsToBuyTitle"
                   android:text="@string/reasons_to_buy_sample_app"
                   android:textAllCaps="true"
                   style="@style/Text.Description"
