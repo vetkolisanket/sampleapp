@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.features.home
+package com.sanket.sampleapp.features.home.models
 
 import com.google.gson.annotations.SerializedName
 

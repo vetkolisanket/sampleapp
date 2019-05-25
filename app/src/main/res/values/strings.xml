@@ -24,6 +24,7 @@
     <string name="salutation_description">Welcome to the world of fitness freedom. Access all the activities listed
         below with your single Sample Pass.
     </string>
-    <string name="reasons_to_buy_sample_app">Reasons to buy sample app</string>
+    <string name="reasons_to_buy_sample_app">REASONS TO BUY SAMPLE APP</string>
     <string name="h_num">#%s</string>
+    <string name="explore">EXPLORE</string>
 </resources>

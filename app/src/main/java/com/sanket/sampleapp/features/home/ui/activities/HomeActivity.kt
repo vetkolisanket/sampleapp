@@ -7,8 +7,9 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
-import com.sanket.sampleapp.features.home.ReasonToBuy
 import com.sanket.sampleapp.features.home.contracts.IHomeContract
+import com.sanket.sampleapp.features.home.models.Facility
+import com.sanket.sampleapp.features.home.models.ReasonToBuy
 import com.sanket.sampleapp.utils.UiUtils
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_home.*
@@ -59,6 +60,10 @@ class HomeActivity : BaseActivity(), IHomeContract.View {
     override fun showReasonsToBuy(reasonsToBuy: MutableList<ReasonToBuy>) {
         UiUtils.showHideViews(true, tvReasonsToBuyTitle, rvReasonsToBuy)
         adapter.setItems(reasonsToBuy)
+    }
+
+    override fun showFacilities(facilities: MutableList<Facility>) {
+
     }
 
 }

@@ -20,7 +20,6 @@
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/tvReasonsToBuyTitle"
                   android:text="@string/reasons_to_buy_sample_app"
-                  android:textAllCaps="true"
                   style="@style/Text.Description"
                   android:visibility="gone"
                   tools:visibility="visible"
@@ -33,6 +32,18 @@
                                                    tools:visibility="visible"
                                                    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
                                                    tools:listitem="@layout/item_reasons_to_buy"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/tvExploreTitle"
+        android:text="@string/explore"
+        android:layout_margin="@dimen/default_item_margin"/>
+
+        <SearchView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/svExplore"/>
+
+        <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+        android:id="@+id/rvExplore"/>
 
     </LinearLayout>
 

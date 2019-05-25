@@ -63,4 +63,32 @@ class HomeRobot {
         Espresso.isViewHidden(R.id.rvReasonsToBuy)
         return this
     }
+
+    fun isExploreViewHidden(): HomeRobot {
+        Espresso.isViewHidden(R.id.tvExploreTitle)
+        Espresso.isViewHidden(R.id.svExplore)
+        Espresso.isViewHidden(R.id.rvExplore)
+        return this
+    }
+
+    fun verifyGetFacilitiesWasCalled(presenter: IHomeContract.Presenter): HomeRobot {
+        Mockito.verify(presenter).getFacilities()
+        return this
+    }
+
+    fun sendMockFacilities(
+        rule: ActivityTestRule<HomeActivity>,
+        count: Int
+    ): HomeRobot {
+        rule.activity.runOnUiThread {
+            rule.activity.showFacilities(MockUtils.getFacilities(count))
+        }
+        return this
+    }
+
+    fun isExploreViewVisible() {
+        Espresso.isViewVisible(R.id.tvExploreTitle)
+        Espresso.isViewVisible(R.id.svExplore)
+        Espresso.isViewVisible(R.id.rvExplore)
+    }
 }

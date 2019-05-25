@@ -1,6 +1,7 @@
 package com.sanket.sampleapp
 
-import com.sanket.sampleapp.features.home.ReasonToBuy
+import com.sanket.sampleapp.features.home.models.Facility
+import com.sanket.sampleapp.features.home.models.ReasonToBuy
 
 /**
  * Created by Sanket on 22/05/19.
@@ -29,4 +30,15 @@ object MockUtils {
         return reasonToBuy
     }
 
+    fun getFacilities(count: Int): MutableList<Facility> {
+        val facilities = mutableListOf<Facility>()
+        for (item in 0 until count) {
+            facilities.add(getFacility())
+        }
+        return facilities
+    }
+
+    fun getFacility(): Facility {
+        return Facility()
+    }
 }
