@@ -4,12 +4,15 @@ import Injection
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseActivity
 import com.sanket.sampleapp.features.home.contracts.IHomeContract
 import com.sanket.sampleapp.features.home.models.Facility
 import com.sanket.sampleapp.features.home.models.ReasonToBuy
+import com.sanket.sampleapp.features.home.ui.adapters.ExploreFacilitiesAdapter
+import com.sanket.sampleapp.features.home.ui.adapters.ReasonsToBuyAdapter
 import com.sanket.sampleapp.utils.UiUtils
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.activity_home.*
@@ -17,7 +20,8 @@ import kotlinx.android.synthetic.main.activity_home.*
 class HomeActivity : BaseActivity(), IHomeContract.View {
 
     private val presenter: IHomeContract.Presenter by unsafeLazy { Injection.getHomePresenter() }
-    private val adapter by unsafeLazy { ReasonsToBuyAdapter() }
+    private val reasonsToBuyAdapter by unsafeLazy { ReasonsToBuyAdapter() }
+    private val exploreFacilitiesAdapter by unsafeLazy { ExploreFacilitiesAdapter() }
 
     companion object {
         fun newIntent(context: Context) = Intent(context, HomeActivity::class.java)
@@ -36,6 +40,7 @@ class HomeActivity : BaseActivity(), IHomeContract.View {
         super.onResume()
         presenter.attachView(this)
         presenter.getReasonsToBuy()
+        presenter.getFacilities()
     }
 
     override fun onPause() {
@@ -52,18 +57,21 @@ class HomeActivity : BaseActivity(), IHomeContract.View {
 
     private fun initRecyclerView() {
         rvReasonsToBuy.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvReasonsToBuy.adapter = adapter
+        rvReasonsToBuy.adapter = reasonsToBuyAdapter
+        rvExplore.layoutManager = GridLayoutManager(this, 2)
+        rvExplore.adapter = exploreFacilitiesAdapter
     }
 
     //Contract
 
     override fun showReasonsToBuy(reasonsToBuy: MutableList<ReasonToBuy>) {
         UiUtils.showHideViews(true, tvReasonsToBuyTitle, rvReasonsToBuy)
-        adapter.setItems(reasonsToBuy)
+        reasonsToBuyAdapter.setItems(reasonsToBuy)
     }
 
     override fun showFacilities(facilities: MutableList<Facility>) {
-
+        UiUtils.showHideViews(true, tvExploreTitle, svExplore, rvExplore)
+        exploreFacilitiesAdapter.setItems(facilities)
     }
 
 }

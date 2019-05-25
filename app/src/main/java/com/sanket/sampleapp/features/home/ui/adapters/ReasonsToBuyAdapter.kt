@@ -1,11 +1,11 @@
-package com.sanket.sampleapp.features.home.ui.activities
+package com.sanket.sampleapp.features.home.ui.adapters
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseViewHolder
-import com.sanket.sampleapp.features.home.ReasonToBuy
+import com.sanket.sampleapp.features.home.models.ReasonToBuy
 import com.sanket.sampleapp.utils.inflateView
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.item_reasons_to_buy.view.*

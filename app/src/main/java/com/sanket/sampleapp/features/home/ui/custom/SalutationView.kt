@@ -1,4 +1,4 @@
-package com.sanket.sampleapp.features.home.ui.activities
+package com.sanket.sampleapp.features.home.ui.custom
 
 import android.content.Context
 import android.os.Build
