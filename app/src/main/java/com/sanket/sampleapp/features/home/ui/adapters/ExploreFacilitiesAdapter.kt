@@ -7,6 +7,7 @@ import com.sanket.sampleapp.R
 import com.sanket.sampleapp.base.BaseViewHolder
 import com.sanket.sampleapp.features.home.models.Facility
 import com.sanket.sampleapp.utils.inflateView
+import com.sanket.sampleapp.utils.load
 import com.sanket.sampleapp.utils.unsafeLazy
 import kotlinx.android.synthetic.main.item_facilities.view.*
 
@@ -38,6 +39,7 @@ class ExploreFacilitiesAdapter: RecyclerView.Adapter<ExploreFacilitiesAdapter.Ex
     class ExploreFacilitiesViewHolder(itemView: View) : BaseViewHolder<Facility>(itemView) {
         override fun bind(item: Facility) {
             itemView.tvActivity.text = itemView.context.getString(R.string.s_n_s_activities, item.name, item.count.toString())
+            itemView.ivFacility.load(item.url)
         }
     }
 

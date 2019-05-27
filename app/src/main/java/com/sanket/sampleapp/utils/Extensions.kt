@@ -2,6 +2,7 @@ package com.sanket.sampleapp.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.core.content.edit
 import com.sanket.sampleapp.BuildConfig
@@ -23,5 +24,11 @@ fun User.saveUser() {
     App.getPreferences()!!.edit {
         putString(Constants.BUNDLE_KEYS.USER, userString)
     }
+}
+
+fun ImageView.load(url: String) {
+    GlideApp.with(this)
+        .load(url)
+        .into(this)
 }
 

@@ -58,7 +58,16 @@ class HomeActivity : BaseActivity(), IHomeContract.View {
     private fun initRecyclerView() {
         rvReasonsToBuy.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvReasonsToBuy.adapter = reasonsToBuyAdapter
-        rvExplore.layoutManager = GridLayoutManager(this, 2)
+        rvExplore.layoutManager = GridLayoutManager(this, 2).also {
+            it.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return if (position == 0)
+                        2
+                    else
+                        1
+                }
+            }
+        }
         rvExplore.adapter = exploreFacilitiesAdapter
     }
 
